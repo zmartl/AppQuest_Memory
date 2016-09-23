@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AppQuest_Memory.Pages;
 using Xamarin.Forms;
 
 namespace AppQuest_Memory
@@ -12,19 +12,7 @@ namespace AppQuest_Memory
         public App()
         {
             // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            XAlign = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainPage = new MasterPage();
         }
 
         protected override void OnStart()
