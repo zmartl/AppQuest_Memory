@@ -14,5 +14,10 @@ namespace AppQuest_Memory.Pages
         {
             InitializeComponent();
         }
+
+        private void MenuItem_OnClicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

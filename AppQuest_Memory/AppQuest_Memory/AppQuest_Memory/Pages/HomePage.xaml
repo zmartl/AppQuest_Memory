@@ -2,5 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppQuest_Memory.Pages.HomePage">
-  <Label Text="Hello World" VerticalOptions="Center" HorizontalOptions="Center" />
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="+" Clicked="MenuItem_OnClicked"/>
+  </ContentPage.ToolbarItems>
+  <ListView IsGroupingEnabled="True">
+    <ListView.GroupHeaderTemplate>
+      <DataTemplate>
+        <TextCell/>
+      </DataTemplate>
+    </ListView.GroupHeaderTemplate>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ImageCell/>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 </ContentPage>

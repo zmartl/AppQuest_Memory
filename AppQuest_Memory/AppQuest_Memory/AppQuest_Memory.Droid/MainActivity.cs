@@ -7,7 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 [assembly: Application(Icon = "@drawable/Icon", Theme = "@android:style/Theme.Holo.Light")]
-
+[assembly: UsesPermission(Android.Manifest.Permission.Flashlight)]
 namespace AppQuest_Memory.Droid
 {
     [Activity(Label = "AppQuest_Memory", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
