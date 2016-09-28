@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AppQuest_Memory.Pages;
+﻿using AppQuest_Memory.Pages;
 using Xamarin.Forms;
 
 namespace AppQuest_Memory
@@ -12,7 +8,7 @@ namespace AppQuest_Memory
         public App()
         {
             // The root page of your application
-            MainPage = new MasterPage();
+            MainPage = new NavigationPage(new ScannerPage());
         }
 
         protected override void OnStart()
