@@ -2,13 +2,13 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AppQuest_Memory.Annotations;
+using PCLStorage;
 
 namespace AppQuest_Memory.Model
 {
     public class MemoryGroup : List<MemoryItem>
     {
-        public MemoryGroup()
-            : base(new []{ new MemoryItem(), new MemoryItem() })
+        public MemoryGroup() : base(new []{ new MemoryItem(), new MemoryItem() })
         {
             
         }
@@ -36,8 +36,6 @@ namespace AppQuest_Memory.Model
                 _title = value;
                 OnPropertyChanged();
             }
-        }
-
-        public string Image { get; set; }
+        }      
     }
 }

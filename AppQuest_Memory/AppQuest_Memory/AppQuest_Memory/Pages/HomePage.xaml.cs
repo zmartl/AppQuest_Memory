@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Acr.UserDialogs;
 using AppQuest_Memory.Model;
+using Newtonsoft.Json;
+using PCLStorage;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 
@@ -12,12 +15,44 @@ namespace AppQuest_Memory.Pages
     {
         private ObservableCollection<MemoryGroup> _groupedItems;
         private bool _noEntries = true;
+        private const string FOLDER = "AppQuest_Memory"; 
+        private const string FILE = "Data.json";
+        private IFile _file;
+        private IFolder _rootFolder;
+        private IFolder _localFolder;
+        private IFile _localFile;
 
         public HomePage()
         {
             InitializeComponent();
             GroupedItems = new ObservableCollection<MemoryGroup>();
             BindingContext = this;
+
+            CreateFile();
+            if (_localFile != null)           
+                FillListFromFile();                       
+        }
+
+        public async void FillListFromFile()
+        {
+            var result = "";
+            _localFolder = await _rootFolder.GetFolderAsync(FOLDER);
+            _localFile = await _localFolder.GetFileAsync(FILE);
+            result = await _localFile.ReadAllTextAsync();
+            _groupedItems = new ObservableCollection<MemoryGroup>(JsonConvert.DeserializeObject<IEnumerable<MemoryGroup>>(result));
+        }
+
+        public async void CreateFile()
+        {
+            // get hold of the file system
+            _rootFolder = FileSystem.Current.LocalStorage;
+
+            // create a folder, if one does not exist already
+            _localFolder = await _rootFolder.CreateFolderAsync(FOLDER, CreationCollisionOption.OpenIfExists);
+
+            // create a file, overwriting any existing file
+            _file = await _localFolder.CreateFileAsync(FILE, CreationCollisionOption.OpenIfExists);
+
         }
 
         public ObservableCollection<MemoryGroup> GroupedItems
@@ -34,9 +69,11 @@ namespace AppQuest_Memory.Pages
             }
         }
 
-        private void GroupedItemsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        public async void GroupedItemsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             NoEntries = GroupedItems.Count == 0;
+            _file = await _localFolder.CreateFileAsync(FILE, CreationCollisionOption.ReplaceExisting);
+            await _file.WriteAllTextAsync(JsonConvert.SerializeObject(_groupedItems));
         }
 
         public bool NoEntries
@@ -62,6 +99,7 @@ namespace AppQuest_Memory.Pages
                 {
                     if (!result.Ok) return;
                     GroupedItems.Add(new MemoryGroup {Name = result.Text});
+
                 }
             });
         }

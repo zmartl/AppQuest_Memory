@@ -63,6 +63,8 @@ namespace AppQuest_Memory.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::AppQuest_Memory.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::AppQuest_Memory.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::AppQuest_Memory.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::PCLStorage.Resource.String.ApplicationName = global::AppQuest_Memory.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::AppQuest_Memory.Droid.Resource.String.Hello;
 			global::Splat.Resource.String.library_name = global::AppQuest_Memory.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::AppQuest_Memory.Droid.Resource.Attribute.actionBarSize;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::AppQuest_Memory.Droid.Resource.Layout.zxingscanneractivitylayout;
@@ -3053,6 +3055,12 @@ namespace AppQuest_Memory.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f080027
+			public const int ApplicationName = 2131230759;
+			
+			// aapt resource value: 0x7f080026
+			public const int Hello = 2131230758;
+			
 			// aapt resource value: 0x7f08000f
 			public const int abc_action_bar_home_description = 2131230735;
 			
@@ -3119,8 +3127,8 @@ namespace AppQuest_Memory.Droid
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
 			
-			// aapt resource value: 0x7f080026
-			public const int library_name = 2131230758;
+			// aapt resource value: 0x7f080028
+			public const int library_name = 2131230760;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;
