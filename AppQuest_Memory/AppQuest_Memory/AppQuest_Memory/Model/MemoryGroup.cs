@@ -1,31 +1,59 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AppQuest_Memory.Annotations;
-using PCLStorage;
+using Newtonsoft.Json;
 
 namespace AppQuest_Memory.Model
 {
-    public class MemoryGroup : List<MemoryItem>
+    [JsonObject(MemberSerialization.OptIn)]
+    public class MemoryGroup : ObservableCollection<MemoryItem>
     {
-        public MemoryGroup() : base(new []{ new MemoryItem(), new MemoryItem() })
+        private string _name;
+
+        public MemoryGroup()
         {
             
         }
 
-        public string Name { get; set; }
+        public MemoryGroup(string name)
+            : base(new [] { new MemoryItem(), new MemoryItem() })
+        {
+            Name = name;
+        }
+
+        [JsonProperty("ProxyItems")]
+        public IList<MemoryItem> ProxyItems
+        {
+            get { return Items; }
+            set
+            {
+                Items.Clear();
+                foreach (var item in value)
+                {
+                    Items.Add(item);
+                }
+            }
+        }
+
+        [JsonProperty("Name")]
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (Equals(_name, value))
+                    return;
+                _name = value;
+                OnPropertyChanged(new PropertyChangedEventArgs(nameof(Name)));
+            }
+        }
     }
 
     public class MemoryItem : INotifyPropertyChanged
     {
         private string _title = "(Noch kein Scan)";
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         public string Title
         {
@@ -36,6 +64,14 @@ namespace AppQuest_Memory.Model
                 _title = value;
                 OnPropertyChanged();
             }
-        }      
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
