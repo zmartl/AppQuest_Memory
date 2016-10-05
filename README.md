@@ -10,10 +10,10 @@ Ein Bild-Paar hat immer dasselbe Motiv, aber sie unterscheiden sich im enthalten
 0.1
 
 ## Authors
-[Luca Marti](https://github.com/zmartl)
-[Homepage](https://www.luca-marti.ch)
+[Luca Marti](https://github.com/zmartl)__
+[Homepage](https://www.luca-marti.ch)__
 Software Developer
 
-[Elia Perenzin](https://github.com/zperee)
-[Homepage](http://eliaperenzin.ch/)
+[Elia Perenzin](https://github.com/zperee)__
+[Homepage](http://eliaperenzin.ch/)__
 Software Developer
