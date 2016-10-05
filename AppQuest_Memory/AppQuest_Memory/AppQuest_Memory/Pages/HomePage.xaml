@@ -31,7 +31,7 @@
                  VerticalOptions="CenterAndExpand" FontSize="22" TextColor="#D3D2D2" />
         </StackLayout>
       </AbsoluteLayout>
-      <Button x:Name="btnSend" Text="Send to LogBuch" Clicked="BtnSend_OnClicked" BackgroundColor="#43BB7B" TextColor="White"/>
+      <Button x:Name="btnSend" Text="Send to LogBuch" Clicked="BtnSend_OnClicked" BackgroundColor="#43BB7B" TextColor="White" IsEnabled="{Binding NoEntries}"/>
     </StackLayout>
     
 </ContentPage>
