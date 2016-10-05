@@ -9,13 +9,11 @@ Ein Bild-Paar hat immer dasselbe Motiv, aber sie unterscheiden sich im enthalten
 ## Version
 0.1
 
-## Authors
-![data](https://avatars1.githubusercontent.com/u/10461354?v=3&s=466 =100x100)  
+## Authors 
 [Luca Marti](https://github.com/zmartl)  
 [Homepage](https://www.luca-marti.ch)  
 Software Developer
-
-![data](https://avatars2.githubusercontent.com/u/10461339?v=3&s=466 =100x100)  
+ 
 [Elia Perenzin](https://github.com/zperee)  
 [Homepage](http://eliaperenzin.ch/)  
 Software Developer
