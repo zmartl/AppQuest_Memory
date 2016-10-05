@@ -1,11 +1,13 @@
 ﻿using System;
-
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
+
 [assembly: Application(Icon = "@drawable/Icon", Theme = "@android:style/Theme.Holo.Light")]
 [assembly: UsesPermission(Android.Manifest.Permission.Flashlight)]
 namespace AppQuest_Memory.Droid
@@ -16,6 +18,7 @@ namespace AppQuest_Memory.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            UserDialogs.Init(() => (Activity) Forms.Context);
 
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 

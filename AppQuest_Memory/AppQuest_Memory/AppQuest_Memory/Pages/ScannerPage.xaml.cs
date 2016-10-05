@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AppQuest_Memory.Model;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 
@@ -11,8 +11,11 @@ namespace AppQuest_Memory.Pages
 {
     public partial class ScannerPage : ContentPage
     {
-        public ScannerPage()
+        private readonly MemoryItem _memoryItem;
+
+        public ScannerPage(MemoryItem memoryItem)
         {
+            _memoryItem = memoryItem;
             InitializeComponent();
         }
 
@@ -23,11 +26,11 @@ namespace AppQuest_Memory.Pages
             scanPage.OnScanResult += (result) => {
                 // Stop scanning
                 scanPage.IsScanning = false;
-
+                _memoryItem.Title = result.Text;
                 // Pop the page and show the result
-                Device.BeginInvokeOnMainThread(() => {
+                Device.BeginInvokeOnMainThread(() =>
+                {
                     Navigation.PopModalAsync();
-                    DisplayAlert("Scanned Barcode", result.Text, "OK");
                 });
             };
 

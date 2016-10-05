@@ -8,7 +8,7 @@ namespace AppQuest_Memory
         public App()
         {
             // The root page of your application
-            MainPage = new NavigationPage(new ScannerPage());
+            MainPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()
