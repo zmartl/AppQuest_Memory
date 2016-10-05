@@ -5,9 +5,10 @@
              x:Class="AppQuest_Memory.Pages.HomePage"
              Title="AppQuest Memory">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="MenuItem_OnClicked" />
+        <ToolbarItem Text="+" Icon="add.png" Clicked="MenuItem_OnClicked" />
+        <ToolbarItem Text="-" Icon="clear.png" Clicked="MenuItem_OnClickeduItemClear_OnClicked" />
     </ContentPage.ToolbarItems>
-    <StackLayout Orientation="Vertical">
+    <StackLayout Orientation="Vertical" Padding="20" Spacing="20">
       <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView IsGroupingEnabled="True" VerticalOptions="StartAndExpand" x:Name="GroupListView"
                   ItemsSource="{Binding GroupedItems}" GroupDisplayBinding="{Binding Name}"
@@ -30,7 +31,7 @@
                  VerticalOptions="CenterAndExpand" FontSize="22" TextColor="#D3D2D2" />
         </StackLayout>
       </AbsoluteLayout>
-      <Button x:Name="btnSend" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Text="Send to LogBuch" Clicked="BtnSend_OnClicked" />
+      <Button x:Name="btnSend" Text="Send to LogBuch" Clicked="BtnSend_OnClicked" BackgroundColor="#43BB7B" TextColor="White"/>
     </StackLayout>
     
 </ContentPage>

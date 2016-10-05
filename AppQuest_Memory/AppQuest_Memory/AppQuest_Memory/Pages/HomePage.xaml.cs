@@ -95,7 +95,7 @@ namespace AppQuest_Memory.Pages
         {
             UserDialogs.Instance.Prompt(new PromptConfig
             {
-                Title = "Gib ein",
+                Title = "Kategorie erstellen",
                 InputType = InputType.Default,
                 OkText = "Erstellen",
                 CancelText = "Abbrechen",
@@ -165,6 +165,16 @@ namespace AppQuest_Memory.Pages
             var result = GroupedItems.Select(t => t.Select(x => x.Title));
             var json = JsonConvert.SerializeObject(result);
             logBuch.OpenLogBuch("Memory", json);
+        }
+
+        private async void MenuItem_OnClickeduItemClear_OnClicked(object sender, EventArgs e)
+        {
+            var result = await DisplayAlert("Löschen", "Willst du wirklich alles löschen?", "Ja", "Nein");
+
+            if (result)
+            {
+                GroupedItems.Clear();
+            }
         }
     }
 }
