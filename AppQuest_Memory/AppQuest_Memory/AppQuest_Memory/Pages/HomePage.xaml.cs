@@ -178,5 +178,5 @@ namespace AppQuest_Memory.Pages
             }
         }
     }
-
+    
 }

@@ -40,6 +40,7 @@
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\InvertBoolenConverter.cs" />
     <Compile Include="Pages\ScannerPage.xaml.cs">
       <DependentUpon>ScannerPage.xaml</DependentUpon>
     </Compile>
