@@ -177,6 +177,19 @@ namespace AppQuest_Memory.Pages
                 GroupedItems.Clear();
             }
         }
+
+		public async void OnDeleteItem(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+			var item = (MemoryItem)mi.CommandParameter;
+			item.Title = "(Noch kein Scan TEst)";
+			await SaveFile();
+        }
+
+		//public void OnDeleteGroup(object sender, EventArgs e)
+		//{
+			//var mi = ((MenuItem)sender);
+		//}
     }
     
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -22,11 +22,18 @@
                   ItemSelected="GroupListView_OnItemSelected"
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="0,0,1,1">
-          <ListView.ItemTemplate>
-            <DataTemplate>
-              <TextCell Text="{Binding Title}" />
-            </DataTemplate>
-          </ListView.ItemTemplate>
+        <ListView.ItemTemplate>
+<DataTemplate>
+              <TextCell Text="{Binding Title}">
+                     <ViewCell.ContextActions>
+                            <!--<MenuItem Clicked="OnDeleteGroup" CommandParameter="{Binding .}"
+                            Text="Delete Group" />-->
+                            <MenuItem Clicked="OnDeleteItem" CommandParameter="{Binding .}"
+                            Text="Delete Item" IsDestructive="True" />
+                     </ViewCell.ContextActions>
+              </TextCell>
+      </DataTemplate>
+</ListView.ItemTemplate>
         </ListView>
         <StackLayout IsVisible="{Binding NoEntries}"
                      HorizontalOptions="FillAndExpand"
