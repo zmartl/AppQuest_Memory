@@ -100,6 +100,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AppQuest_Memory\AppQuest_Memory.csproj">
       <Name>AppQuest_Memory</Name>
+      <Project>{F1CAE2C9-AF1D-4CE1-99D7-4FC428BB8B51}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +110,12 @@
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default%402x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\add%402x.png" />
+    <BundleResource Include="Resources\add%403x.png" />
+    <BundleResource Include="Resources\clear.png" />
+    <BundleResource Include="Resources\clear%402x.png" />
+    <BundleResource Include="Resources\clear%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.Support.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
